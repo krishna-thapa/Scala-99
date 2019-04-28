@@ -8,3 +8,4 @@
 out
 gen
 project/target/streams/compile/compileIncSetup/
+/target/
