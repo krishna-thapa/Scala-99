@@ -93,4 +93,11 @@ class ListsSpec extends FreeSpec{
       assert(flatten(List(List(1, 1), 2, List(3, List(5, 8)))) == List(1, 1, 2, 3, 5, 8))
     }
   }
+
+  //P08
+  "compress()" - {
+    "should remove duplicates elements from the list" in {
+      assert(compress(List(1,1,2,2,3,4,4,4,4)) == List(1,2,3,4))
+    }
+  }
 }

@@ -111,4 +111,18 @@ object Lists {
 
     recursive(ls)
   }
+
+  //P08 Eliminate consecutive duplicates of list elements.
+  def compress[A](ls:List[A]) : List[A] = {
+    def recursive[A](ls : List[A]) : List[A] = ls match {
+      case Nil => Nil
+      case head :: tail => {
+        if (tail.isEmpty) List(head)
+        else if(head == tail.head) recursive(tail)
+        else head :: recursive(tail)
+      }
+    }
+
+    recursive(ls)
+  }
 }
