@@ -85,7 +85,11 @@ object Lists {
 
     def builtIn[A](ls : List[A]) : List[A] = ls.reverse
 
-    recursive(ls)
+    //using functional fold
+    def reverseFucntional[A](ls : List[A]) : List[A] =
+      ls.foldLeft(List[A]()) {(head, tail) => tail :: head}
+
+    reverseFucntional(ls)
   }
 
   // P06 Find out whether a list is a palindrome.
@@ -123,6 +127,13 @@ object Lists {
       }
     }
 
-    recursive(ls)
+    //Functional using foldRight
+    def compressFunctional[A](ls :List[A]) : List[A] =
+      ls.foldRight(List[A]()) {(head, tail) =>
+        if(tail.isEmpty || tail.head != head) head :: tail
+        else tail
+      }
+
+    compressFunctional(ls)
   }
 }
